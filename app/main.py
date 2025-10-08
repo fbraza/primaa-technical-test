@@ -1,6 +1,6 @@
-def main():
-    print("Hello from primaa-api!")
+from fastapi import FastAPI
 
+from app.api.routes import get_job_id
 
-if __name__ == "__main__":
-    main()
+app = FastAPI(title="Primaa Processing API", version="0.1.0")
+app.include_router(get_job_id.router)
