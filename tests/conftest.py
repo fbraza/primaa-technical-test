@@ -1,6 +1,7 @@
 import pytest
+import requests
 
-from app.db import job_id_store
+from app.store.jobs import job_id_store
 
 
 @pytest.fixture(autouse=True)
@@ -20,3 +21,17 @@ def set_fake_db():
         job_id_store.update_status(job_id=job_id, status=_status)  # type: ignore
 
     return job_id_store
+
+
+@pytest.fixture
+def fake_callback_post(monkeypatch):
+    res = {}
+
+    def fake_post(url, json, headers=None, timeout=None):
+        res["url"] = url
+        res["json"] = json
+        res["headers"] = headers
+        res["status_code"] = 200
+
+    monkeypatch.setattr(requests, "post", fake_post)
+    return res

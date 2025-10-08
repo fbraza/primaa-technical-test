@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from models import JobStatusResponse
 
-from app.db import job_id_store
+from app.config.models import JobStatusResponse
+from app.store.jobs import job_id_store
 
 router = APIRouter()
 

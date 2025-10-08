@@ -1,0 +1,9 @@
+POST http://localhost:8000/job-submission HTTP/1.1
+content-type: application/json
+
+{
+    "image_url": "https://www.inotiv.com/hs-fs/hubfs/18-Bronchus-edited.jpeg?width=2132&height=1596&name=18-Bronchus-edited.jpeg",
+    "callback_url": "https://webhook.site/6369a6fc-9575-409e-becf-e2237953c8ef",
+	"callback_token":"a1b2c3d4-e5f6-7890-1234-567890abcdef",
+	"algorithm_name": "roi_detection"
+}
