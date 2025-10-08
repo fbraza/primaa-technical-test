@@ -6,7 +6,7 @@ It is a python API that trigger jobs for image processing. Jobs status and id ar
 
 - Start a FastAPI server
 - Submit a job
-- Get job status, result and error
+- Get job status using the job_id
 
 ## Installation and usage
 
