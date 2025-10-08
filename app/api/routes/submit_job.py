@@ -22,11 +22,18 @@ def submit_job(
     try:
         _ = JobSubmissionRequest(**payload)
     except ValidationError as exc:
-        job_id_store.update(job_id=job_id, status="Failed")
+        job_id_store.update_status(job_id=job_id, status="Failed")
+        job_id_store.store_error(job_id=job_id, error=str(exc))
+
         return JobStatusResponse(
-            code=404, job_id=job_id, status=job_id_store.read(job_id), error=str(exc)
+            code=404,
+            job_id=job_id,
+            status=job_id_store.read_status(job_id),
+            error=str(exc),
         )
 
     # background job
 
-    return JobStatusResponse(code=200, job_id=job_id, status=job_id_store.read(job_id))
+    return JobStatusResponse(
+        code=200, job_id=job_id, status=job_id_store.read_status(job_id)
+    )
