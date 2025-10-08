@@ -14,7 +14,7 @@ def get_job_status(
     Collect the status "Pending", "Running", "Completed" or "Failed" of a job.
     If job does not exist status will be "NotFound"
     """
-    if job_id_store.read(job_id) == "NotFound":
+    if job_id_store.read_status(job_id) == "NotFound":
         return JobStatusResponse(
             code=404,
             status="NotFound",
@@ -22,6 +22,6 @@ def get_job_status(
         )
     return JobStatusResponse(
         code=200,
-        status=job_id_store.read(job_id),
+        status=job_id_store.read_status(job_id),
         job_id=job_id,
     )

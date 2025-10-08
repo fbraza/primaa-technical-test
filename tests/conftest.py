@@ -17,6 +17,6 @@ def set_fake_db():
         job_id_store.create(job_id=job_id)
 
     for job_id, _status in zip(jobs, status):
-        job_id_store.update(job_id=job_id, status=_status)  # type: ignore
+        job_id_store.update_status(job_id=job_id, status=_status)  # type: ignore
 
     return job_id_store
