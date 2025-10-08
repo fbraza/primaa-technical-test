@@ -1,11 +1,11 @@
 from uuid import uuid4
 
 from fastapi import APIRouter, BackgroundTasks, Body
-from models import JobStatusResponse, JobSubmissionRequest
 from pydantic import ValidationError
 
-from app.db import job_id_store
+from app.config.models import JobStatusResponse, JobSubmissionRequest
 from app.primaalgo import process
+from app.store.jobs import job_id_store
 
 router = APIRouter()
 

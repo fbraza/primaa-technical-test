@@ -1,0 +1,2 @@
+# use POST first to get the job-id
+GET http://localhost:8000/status/529c2185-d356-4e22-be12-3124999451a9

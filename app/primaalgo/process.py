@@ -7,10 +7,10 @@ from PIL import Image
 from shapely import wkt
 from shapely.geometry import mapping
 
-from app.db import job_id_store
-from app.models import JobSubmissionRequest
+from app.config.models import JobSubmissionRequest
 from app.primaalgo import poi_detection as poi
 from app.primaalgo import roi_detection as roi
+from app.store.jobs import job_id_store
 
 
 def job(job_request: JobSubmissionRequest, job_id: str):

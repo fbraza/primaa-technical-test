@@ -1,7 +1,7 @@
 import pytest
 import requests
 
-from app.db import job_id_store
+from app.store.jobs import job_id_store
 
 
 @pytest.fixture(autouse=True)
