@@ -29,7 +29,7 @@ This will build the image
 Next you can run the following command:
 
 ```bash
-docker run --rm -p 8000:8000 primaa/api
+docker run -p 8000:8000 primaa/api
 ```
 
 You should see this output:
